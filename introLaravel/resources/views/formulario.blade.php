@@ -31,7 +31,7 @@
 
             <div class="card-body text-justify">
 
-                <form class="mb-3" action="/enviarCliente" method="POST">
+                <form class="mb-3" action="/enviarClientes" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre: </label>

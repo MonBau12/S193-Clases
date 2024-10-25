@@ -40,15 +40,9 @@ public function procesarClientes(validadorCliente $peticion)
         //$id= [['usuario'=>1],['usuario'=>2]];
         //return view('form',compact('id'));
         
-        $validacion= $peticion->validate([
-            'txtnombre'=> 'required|min:4|max:20',
-            'txtapellidos'=> 'required',
-            'txtcorreo'=> 'required',
-            'txttelefono'=> 'required|numeric',
-        ]);
-       
+
         //redireccion con un mensaje flashb
-        $usuario= $peticion->input('txtNombre');
+        $usuario= $peticion->input('txtnombre');
         
         session()->flash('exito','Se guardo el usuario: '.$usuario);
         return to_route('rutaform');
