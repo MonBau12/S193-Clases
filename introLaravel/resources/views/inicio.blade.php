@@ -18,9 +18,9 @@
 </head>
 <body>
     <div class="d-flex flex-column justify-content-center align-items-center text-center full-height">
-        <h1 class="display-1">¡Bienvenido Turista!</h1>
+        <h1 class="display-1">{{__('Bienvenido Turista')}}</h1>
         <p>Presiona el botón para iniciar...</p>
-        <a href="{{route ('rutaform') }}" class="btn btn-primary">Ir al Registro</a>
+        <a href="{{route ('rutaform') }}" class="btn btn-primary">{{__('Ir al Registro')}}</a>
         <!-- <a href="/formulario" class="btn btn-danger">Ir al Registro</a> -->
     </div>
 </body>
