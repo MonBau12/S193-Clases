@@ -9,4 +9,5 @@ Route::get('/', function () {
 
 Route::get('/', [LibroController::class, 'index'])->name('principal');
 Route::get('/registro', [LibroController::class, 'create'])->name('libros.create');
-Route::post('/registro', [LibroController::class, 'store'])->name('libros.store');
+Route::get('/biblioteca', [LibroController::class, 'store'])->name('libros.store');
+

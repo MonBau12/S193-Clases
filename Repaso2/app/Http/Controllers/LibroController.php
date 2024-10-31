@@ -13,7 +13,8 @@ class LibroController extends Controller
     public function create() {
         return view('registro');
     }
-    
+
+   
     public function store(Request $request) {
         $validatedData = $request->validate([
             'isbn' => 'required|numeric|min:13',

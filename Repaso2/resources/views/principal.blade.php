@@ -3,7 +3,7 @@
 @section('content')
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{{route('libros.create')}}">{{__('Registro de Libros')}}</a>
-    <a class="navbar-brand" href="{{route('libros.store')}}">{{__('Biblioteca')}}</a>
+ 
     </nav>
     <div class="container">
         <h1>Noticia literaria :  Harry Potter, el pacto de un padre y un fenómeno literario que cumple 20 años e inspiró a millones de niños y adultos en todo el mundo</h1>
