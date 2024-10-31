@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('title', 'Página Principal')
 @section('content')
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="{{route('libros.create')}}">{{__('Registro de Libros')}}</a>
  
     </nav>

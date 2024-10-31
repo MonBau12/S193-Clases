@@ -10,7 +10,7 @@
 <body>
     @yield('content')
     <footer>
-        <p class="text-center">Nombre Biblioteca © {{ date('d-m-Y') }}</p>
+        <p class="text-center">Nombre Biblioteca (Las locuras del emperador) © {{ date('d-m-Y') }}</p>
     </footer>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 </body>
