@@ -2,47 +2,53 @@
 @section('title', 'Registro de Libro')
 @section('content')
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Biblioteca</a>
+        <a class="navbar-brand" href="{{route('principal')}}">{{__('')}}Página principal</a>
     </nav>
     <div class="container mt-5 col-md-6">
-
-    <div class="card font-monospace">
-
-        <div class="card-header fs-5 text-center text-primary">
-            {{__('Registro de libros')}}
-        </div>
-        <div class="card-body text-justify">
-            <form action="{{route('libros.create')}}" method="POST">
-            @csrf
-            <div class="mb-3">
-                <label for="titulo" class="form-label">Título del libro</label>
-                <input type="text" class="form-control" id="titulo" name="titulo"
-                <label for="isbn" class="form-label">ISBN</label>
-                <input type="text" class="form-control" value=" " name="titulo"
-
+        <div class="card font-monospace p-4">
+            <div class="card-header text-center">
+                <h4>Registro de Libro</h4>
             </div>
-            </form>
+            <div class="card-body">
+                <form action="{{ route('libros.store') }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="isbn" class="form-label">ISBN</label>
+                        <input type="text" class="form-control" id="isbn" name="isbn" placeholder="ISBN" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="titulo" class="form-label">Título</label>
+                        <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="autor" class="form-label">Autor</label>
+                        <input type="text" class="form-control" id="autor" name="autor" placeholder="Autor" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="paginas" class="form-label">Páginas</label>
+                        <input type="number" class="form-control" id="paginas" name="paginas" placeholder="Páginas" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="año" class="form-label">Año</label>
+                        <input type="number" class="form-control" id="año" name="año" placeholder="Año" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editorial" class="form-label">Editorial</label>
+                        <input type="text" class="form-control" id="editorial" name="editorial" placeholder="Editorial" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email_editorial" class="form-label">Email de Editorial</label>
+                        <input type="email" class="form-control" id="email_editorial" name="email_editorial" placeholder="Email de Editorial" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Guardar Libro</button>
+                </form>
+            </div>
         </div>
-    </div>
-        <form action="{{ route('libros.store') }}" method="POST">
-            @csrf
-            
-            <input type="text" name="isbn" placeholder="ISBN" required>
-            <input type="text" name="titulo" placeholder="Título" required>
-            <input type="text" name="autor" placeholder="Autor" required>
-            <input type="number" name="paginas" placeholder="Páginas" required>
-            <input type="number" name="año" placeholder="Año" required>
-            <input type="text" name="editorial" placeholder="Editorial" required>
-            <input type="email" name="email_editorial" placeholder="Email de Editorial" required>
-            <button type="submit">Guardar Libro</button>
-        </form>
-        @session('exito')
-        {!<script>
-            Swal.fire({
-                alertify()->success("Todo correcto: Libro '{$request->titulo}' guardado");
-                icon: "success"});
-           </script>!}
-        @endsession
-
+        
+        @if(session('exito'))
+            <script>
+                alertify.success("{{ session('exito') }}");
+            </script>
+        @endif
     </div>
 @endsection
