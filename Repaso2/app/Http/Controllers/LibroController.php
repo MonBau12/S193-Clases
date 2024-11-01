@@ -3,35 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\validadorLibro;
 
 class LibroController extends Controller
 {
-    public function index() {
+    public function principal() {
         return view('principal');
     }
     
-    public function create() {
+    public function registro() {
         return view('registro');
     }
 
-   
-    public function store(Request $request) {
-        $validatedData = $request->validate([
-            'isbn' => 'required|numeric|min:13',
-            'titulo' => 'required|string|max:150',
-            'autor' => 'required|string|max:100',
-            'paginas' => 'required|integer|min:1',
-            'año' => 'required|integer|between:1000,' . date('Y'),
-            'editorial' => 'required|string|max:100',
-            'email_editorial' => 'required|email'
-        ]);
-    
-
-    
+    public function confirmacionregistro(validadorLibro $peticion) {
         
-        return redirect()->route('principal');
+        $libro = $peticion ->input('txttitulo');
+
+        session()->flash ('exito','Todo correcto: Libro"' .$libro.'"guardado');
+
+        return to_route('libroscreate');
+
+
     }
-    
 }
 
 

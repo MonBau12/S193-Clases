@@ -5,12 +5,21 @@
         <a class="navbar-brand" href="{{route('principal')}}">{{__('')}}Página principal</a>
     </nav>
     <div class="container mt-5 col-md-6">
+    @session('exito')
+        {!<script>
+            Swal.fire({
+                title: "Todo correcto!",
+                text: "Las Cronicas de Narnia El Viajero del Alba!",
+                text: "Libro guardado",
+                icon: "success"});
+           </script>!}
+        @endsession
         <div class="card font-monospace p-4">
             <div class="card-header text-center">
                 <h4>Registro de Libro</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('libros.store') }}" method="POST">
+                <form action="{{ route('confirmacionregistro') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="isbn" class="form-label">ISBN</label>
@@ -44,11 +53,6 @@
                 </form>
             </div>
         </div>
-        
-        @if(session('exito'))
-            <script>
-                alertify.success("{{ session('exito') }}");
-            </script>
-        @endif
+      
     </div>
 @endsection

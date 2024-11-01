@@ -2,7 +2,7 @@
 @section('title', 'Página Principal')
 @section('content')
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{route('libros.create')}}">{{__('Registro de Libros')}}</a>
+    <a class="navbar-brand" href="{{route('libroscreate')}}">{{__('Registro de Libros')}}</a>
  
     </nav>
     <div class="container">
