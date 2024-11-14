@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class ControladorCRUD extends Controller
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+class clienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,15 +20,22 @@ class ControladorCRUD extends Controller
      */
     public function create()
     {
-        //
+        return view('formulario');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * aqui se mete el insert.
      */
     public function store(Request $request)
     {
-        //
+        DB::table('clientes')->insert([
+            "nombre"=>$request->input('txtnombre'),
+            "apellido"=>$request->input('txtapellido'),
+            "correo"=>$request->input('txtcorreo'),
+            "telefono"=>$request->input('txttelefono'),
+            "created_at"=> Carbon::now(),
+            "update_at"=> Carbon::now(),
+        ]);
     }
 
     /**
